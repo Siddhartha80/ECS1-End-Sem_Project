@@ -16,15 +16,3 @@ Truth Table
 
 ![image](https://github.com/Siddhartha80/ECS1-End-Sem_Project/assets/133953774/15ff8b4e-77d7-43cf-a281-a1a6cf1fc39e)
 
-Code:
-CHIP ThreeHalfAdders{
-      IN  a, b, c;
-    OUT sum,   
-        carry; 
-    PARTS:
-    HalfAdder(a=a,        b=b,    sum=axorb,          carry=ab);
-    HalfAdder(a=axorb, b=c,    sum=d,   carry=e);
-    HalfAdder(a=c,        b=ab,  sum=f,        carry=g);
-}
-
-
