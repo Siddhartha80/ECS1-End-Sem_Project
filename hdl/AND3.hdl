@@ -1,0 +1,15 @@
+/**
+ * AND3
+ *
+ * Three-input AND gate: out = a AND b AND c
+ * (true only when a, b and c are all 1), built from two 2-input AND gates.
+ */
+
+CHIP AND3 {
+    IN  a, b, c;
+    OUT out;
+
+    PARTS:
+    And(a=a,    b=b, out=ab);
+    And(a=ab,   b=c, out=out);
+}
