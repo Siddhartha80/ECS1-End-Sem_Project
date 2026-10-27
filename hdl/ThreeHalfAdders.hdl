@@ -1,0 +1,29 @@
+/**
+ * ThreeHalfAdders
+ *
+ * Implements four Boolean functions using exactly three half adders:
+ *
+ *   D = A xor B xor C
+ *   E = A'BC + AB'C          = (A xor B) . C
+ *   F = ABC' + (A'+B')C      = (A . B) xor C
+ *   G = ABC
+ *
+ * Half adder:  sum = x xor y,  carry = x . y
+ *
+ * HA1(a, b)      -> sum = a xor b,        carry = ab
+ * HA2(a xor b, c)-> sum = D,              carry = E
+ * HA3(c, ab)     -> sum = F,              carry = G
+ */
+
+CHIP ThreeHalfAdders {
+    IN  a, b, c;
+    OUT d,   // a xor b xor c
+        e,   // (a xor b) and c
+        f,   // (a and b) xor c
+        g;   // a and b and c
+
+    PARTS:
+    HalfAdder(a=a,     b=b,  sum=axorb, carry=ab);
+    HalfAdder(a=axorb, b=c,  sum=d,     carry=e);
+    HalfAdder(a=c,     b=ab, sum=f,     carry=g);
+}
